@@ -1,0 +1,60 @@
+const mongoose =require("mongoose");
+
+const userSchema = new mongoose.Schema({
+    userName:{
+        type:String,
+        required:true
+    },
+    mobile:{
+        type:Number,
+        required:true
+    },
+    otp:{
+        type:String,
+    },
+    otpExpiry:{
+        type:Date,
+    },
+    cart:[
+        {
+            itemName:String,
+            itemType:String,
+            color:String,
+            price:Number,
+            fabric:String,
+            photoUrl:String,
+            boughtearlier:Number,
+            itemCategory:String,
+            size:String,
+        }
+    ],
+    snikketCoins:{
+        type:Number,
+        default:100,
+    },
+    cartBill:{
+        type:Number,
+        default:0
+    },
+    cartCoins:{
+        type:Number,
+        default:0
+    },
+    myOrders:[
+        {
+            orderTotal:Number,
+            orderDate:Date,
+            items:[
+                {
+                    itemName:String,
+                    price:Number,
+                    photoUrl:String
+                }
+            ]
+        }
+    ]
+},{
+    timestamps:true,
+})
+
+module.exports = mongoose.model("User",userSchema);
