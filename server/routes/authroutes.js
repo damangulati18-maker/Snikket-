@@ -17,7 +17,11 @@ authRouter.post("/signup",async (req,res)=>{
     await adduser.save();
     //now we will create token for new signed user also
     const token=await jwt.sign({_id:adduser._id},"secretkeyclothingapp");
-    res.cookie("token",token);
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none"
+    });
     res.send(adduser);
 });
 
@@ -63,8 +67,11 @@ authRouter.post("/login",async(req,res)=>{
 });
 
 authRouter.post("/logout",async(req,res)=>{
-    res.cookie("token",null,{
-        expires:new Date(Date.now()),//we will only expire the cookie ans setting token to null
+    res.cookie("token", null, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        expires: new Date(Date.now())
     });
     res.send("Logged out");
 })
@@ -93,7 +100,11 @@ authRouter.post("/verify-otp",async(req,res)=>{
         
         //now the otp is verified if we reach here so now we create token for logged user
         const token = jwt.sign({_id:user._id},"secretkeyclothingapp");
-        res.cookie("token",token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
 
         //now set otp and expiry date as null after verification
         user.otp = null;
