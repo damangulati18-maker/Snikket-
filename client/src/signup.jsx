@@ -67,8 +67,8 @@ const SignUp = ()=>{
             setshowotp(true);
         }
         catch(err){
-            console.error(err);
-            seterr(true);
+            console.error("Full error:", err.response?.data);
+        seterr(true);
         }
     }
 
