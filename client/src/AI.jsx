@@ -35,7 +35,7 @@ const AiShop = () => {
   return (
     <div>
       <Header />
-      <div className="bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400 min-h-screen pb-20 relative overflow-hidden">
+      <div className="bg-linear-to-br from-gray-200 via-gray-300 to-gray-400 min-h-screen pb-20 relative overflow-hidden">
 
         {/* Decorative background blobs */}
         <div className="absolute top-10 -left-20 w-72 h-72 bg-red-300/30 rounded-full blur-3xl animate-pulse"></div>
@@ -89,7 +89,7 @@ const AiShop = () => {
                     className="group bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-lg hover:shadow-2xl border border-white/50 hover:border-red-400 transition-all duration-300 flex items-center gap-4 hover:-translate-y-1 hover:scale-[1.02] animate-[fadeInUp_0.5s_ease-out_backwards]"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <span className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-red-400 to-red-500 text-white font-bold shrink-0 shadow-md group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                    <span className="flex items-center justify-center w-11 h-11 rounded-full bg-linear-to-br from-red-400 to-red-500 text-white font-bold shrink-0 shadow-md group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
                       {index + 1}
                     </span>
                     <p className="text-black font-medium leading-snug group-hover:text-red-500 transition-colors duration-200">
